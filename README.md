@@ -12,6 +12,8 @@
 ```bash
 git clone
 
+.env.example переименовать в .env
+
 cd docker-services
 
 docker-compose up -d
