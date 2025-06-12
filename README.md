@@ -7,27 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Starting project
-
-### Если установлен maker bundle:
-
-```bash
-git clone
-
-composer install
-
-cd docker-services
-
-make install
-
-make terminal
-
-cd html
-
-php artisan migrate
-```
-
-### Если не установлен maker bundle:
+## Разворот проекта локально:
 
 ```bash
 git clone
@@ -40,7 +20,7 @@ docker exec -it app_php bash
 
 cd html
 
-composer install
+php artisan key:generate // Генерация ключа выполняется один раз
 
 php artisan migrate
 ```
