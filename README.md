@@ -9,11 +9,17 @@
 
 ## Разворот проекта локально:
 
+Клонировать репозиторий:
+
 ```bash
 git clone
+```
 
 .env.example переименовать в .env
 
+Выполнить команды:
+
+```bash
 cd docker-services
 
 docker-compose up -d
