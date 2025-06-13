@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Livewire\UserProfileForm;
 
-Route::get('/', function () {
-    return view('app');
-});
+Route::get('/', UserProfileForm::class);
