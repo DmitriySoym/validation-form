@@ -9,17 +9,13 @@
 
 ## Разворот проекта локально:
 
-Клонировать репозиторий:
-
 ```bash
 git clone
-```
 
-.env.example переименовать в .env
+cd validation-form
 
-Выполнить команды:
+cp .env.example .env
 
-```bash
 cd docker-services
 
 docker-compose up -d
@@ -28,7 +24,9 @@ docker exec -it app_php bash
 
 cd html
 
-php artisan key:generate // Генерация ключа выполняется один раз
+composer install
+
+php artisan key:generate
 
 php artisan migrate
 ```

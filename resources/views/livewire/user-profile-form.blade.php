@@ -111,6 +111,20 @@
 
                     {{-- Loading indicator --}}
                     <div wire:loading wire:target="files" class="form-text">Загрузка файлов...</div>
+                    <div class="mb-3 mt-3">
+                        @foreach($uploadedFiles as $index => $filePath)
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="me-2">{{ basename($filePath) }}</span>
+                            <button type="button" class="btn btn-sm btn-outline-danger"
+                                wire:click="removeFile({{ $index }})">
+                                Удалить
+                            </button>
+                        </div>
+                        @endforeach
+                    </div>
+                    @if(count($uploadedFiles) >= 5)
+                        <div class="text-danger mt-2">Максимальное количество файлов (5) достигнуто</div>
+                    @endif
                 </div>
 
                 {{-- Rules Checkbox --}}
