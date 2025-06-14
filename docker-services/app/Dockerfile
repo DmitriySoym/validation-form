@@ -4,13 +4,17 @@ RUN apt-get update && apt-get install -y \
         apt-utils \
         libpq-dev \
         libpng-dev \
+        libjpeg62-turbo-dev \
+        libfreetype6-dev \
         libzip-dev \
         zip unzip \
         git && \
-        docker-php-ext-install pdo_mysql && \
-        docker-php-ext-install bcmath && \
-        docker-php-ext-install gd && \
-        docker-php-ext-install zip && \
+        docker-php-ext-configure gd --with-freetype --with-jpeg && \
+        docker-php-ext-install -j$(nproc) \
+            pdo_mysql \
+            bcmath \
+            gd \
+            zip && \
         apt-get clean && \
         rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -24,9 +28,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- \
 WORKDIR /var/www/html
 
 COPY ./app/entrypoint.sh /usr/local/bin/entrypoint.sh
-
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
 ENTRYPOINT ["entrypoint.sh"]
-
 CMD ["php-fpm"]
