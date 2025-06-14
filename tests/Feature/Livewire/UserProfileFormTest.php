@@ -39,7 +39,7 @@ class UserProfileFormTest extends TestCase
         $this->assertDatabaseHas('user_profiles', [
             'first_name' => 'Иван',
             'last_name' => 'Иванов',
-            'email' => ''
+            'email' => null,
         ]);
         
         Storage::disk('public')->assertExists('user_files/' . $file->hashName());
