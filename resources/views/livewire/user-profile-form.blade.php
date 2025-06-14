@@ -110,7 +110,7 @@
                     @error('files') <div class="invalid-feedback">{{ $message }}</div> @enderror
 
                     {{-- Loading indicator --}}
-                    <div wire:loading wire:target="files" class="form-text">Загрузка файлов...</div>
+                    <div wire:loading wire:target="files" class="form-text">Загрузка файла...</div>
                     <div class="mb-3 mt-3">
                         @foreach($uploadedFiles as $index => $filePath)
                         <div class="d-flex align-items-center mb-2">

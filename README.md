@@ -22,11 +22,17 @@ docker-compose up -d
 
 docker exec -it app_php bash
 
-cd html
-
 composer install
 
 php artisan key:generate
 
 php artisan migrate
+
+open: http://localhost
+```
+
+### Запуск тестов:
+
+```bash
+php artisan test tests/Feature/Livewire/UserProfileFormTest.php
 ```

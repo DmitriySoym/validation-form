@@ -103,6 +103,7 @@ class UserProfileForm extends Component
     public function save()
     {
         $validatedData = $this->validate();
+        $this->email = $this->email ?: null;
 
         UserProfile::create([
             'first_name' => $this->firstName,
